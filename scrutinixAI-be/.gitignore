@@ -1,0 +1,39 @@
+# git ignore for fastapi python project
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Environment variables
+.env
+
+# Virtual environment
+venv/
+env/
+myenv/
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Development specific files
+local_settings.py
+
+# other specific files
+cv.txt
+job_description.txt
+
+
