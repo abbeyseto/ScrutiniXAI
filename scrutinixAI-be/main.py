@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, File, Form, Request, UploadFile
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -9,8 +10,8 @@ import openai
 import re
 # import torch
 
-# Set up OpenAI API credentials
-openai.api_key = "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"
+# Set up OpenAI API credentials from .env file
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 # ChatGPT davinci model
 model = "text-davinci-002"
 
