@@ -8,10 +8,14 @@ import docx2txt
 import PyPDF2
 import openai
 import re
+from dotenv import load_dotenv
+load_dotenv()
+
 # import torch
 
 # Set up OpenAI API credentials from .env file
-openai.api_key = os.environ.get('OPENAI_API_KEY')
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 # ChatGPT davinci model
 model = "text-davinci-002"
 
@@ -307,12 +311,12 @@ async def get_job_description_and_cv(job_description_file: UploadFile = File(...
     cv_response = cv_response.choices[0].text.strip().split("\n")
 
     # Comapre the responses and return the result
-    compare_prompt = f'Based on this Job requirement:\n{job_description_response} and the candidate CV:\n{cv_response}, Write a detailed report of how the required years of experience, programming languages, technology tools and skills mentioned in this Job description matched the candidate\'s experience as shown in his CV, also show match accuracy in percentage'
+    compare_prompt = f'Based on this Job requirement:\n{job_description_response} and the candidate CV:\n{cv_response}, Write a detailed highlight report of how the required years of experience, programming languages, technology tools and skills mentioned in this Job description matched the candidate\'s experience as shown in his CV, also show match accuracy in percentage'
     compare_response = openai.Completion.create(
         engine=model,
         prompt=compare_prompt,
         temperature=0.5,
-        max_tokens=100,
+        max_tokens=200,
         n=1,
         frequency_penalty=0,
         presence_penalty=0.3,

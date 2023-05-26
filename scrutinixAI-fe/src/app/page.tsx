@@ -49,8 +49,9 @@ const IndexPage = () => {
     setCvFile(file || null);
   };
 
-
+ 
   const startRecording = () => {
+    resetTranscript();
     setIsRecording(true);
     SpeechRecognition.startListening({ continuous: true });
   };
@@ -58,8 +59,10 @@ const IndexPage = () => {
   const stopRecording = () => {
     setIsRecording(false);
     SpeechRecognition.stopListening();
+    console.log("finalTranscript", finalTranscript);
     resetTranscript();
     setTranscript('');
+    
   };
 
   const handleSubmit = () => {
@@ -92,6 +95,7 @@ const IndexPage = () => {
 
   const generateQuestions = async (context: string) => {
     // read job description from local txt file
+    console.log("finalTranscript", finalTranscript);
     const job_description = await fetch('http://localhost:8000/get-job-description-local').then((response) => response.text());
     const response = await axios.post('http://localhost:8000/generate-questions', { context, job_description });
     return response.data;
