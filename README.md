@@ -44,3 +44,8 @@ The frontend is built using [Next.js](https://nextjs.org/). The main pages are l
 ## Backend
 The backend is built using [FastAPI](https://fastapi.tiangolo.com/). The `main.py` file contains the endpoints. The `models` folder contains the models used in the project. The `utils` folder contains the functions used in the project. The `data` folder contains the data used in the project. The `templates` folder contains the templates used in the project. The `static` folder contains the images used in the project.
 
+
+### Note
+> Please note that the project is still in development and some features are not yet implemented.
+
+> Also, this project will download some models and data the first time you run it. This may take a few minutes.
