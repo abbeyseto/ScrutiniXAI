@@ -10,12 +10,12 @@ git clone <REPOSITORY_URL>
 ## 2. Install the dependencies
  Backend:
 ```
-cd scrutinixAi-be
+cd scrutinixAI-be
 pip install -r requirements.txt
 ```
 Frontend:
 ```
-cd scrutinixAi-fe
+cd scrutinixAI-fe
 npm install
 ```
 
